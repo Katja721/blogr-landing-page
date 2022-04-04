@@ -428,6 +428,9 @@ button:hover {
 .menu_mobile {
   display: none;
 }
+.hamburger_icon {
+  display: none;
+}
 @media only screen and (max-width: 400px) {
   /* .container {
     display: grid;
@@ -460,8 +463,14 @@ button:hover {
     grid-area: header;
     text-align: center;
     justify-items: center;
+    padding: 2rem 0rem;
+    background: url(/images/bg-pattern-intro-mobile.svg);
+    background-position: -33rem -20rem;
+    background-color: hsl(356, 100%, 66%);
   }
-
+  .login {
+    display: none;
+  }
   .logo {
     grid-area: logo;
   }
@@ -477,6 +486,8 @@ button:hover {
 
   .start_tool {
     grid-area: start_tool;
+    align-items: center;
+    background-position: -22rem -19rem;
   }
 
   .description_one {
@@ -622,7 +633,7 @@ button:hover {
     display: none;
     flex-direction: column;
     position: relative;
-    top: -27rem;
+    top: -25rem;
     left: 0rem;
     background-color: hsl(0, 0%, 100%);
     color: hsl(240, 10%, 16%);
@@ -661,7 +672,8 @@ button:hover {
   .login_button_mobile {
     background: none;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.3em;
+    color: hsl(207, 13%, 34%);
   }
 
   .signup_button_mobile {
@@ -687,14 +699,15 @@ button:hover {
     margin: 0rem 0rem 2rem 0rem;
   }
   .hamburger_icon {
+    display: block;
     position: relative;
     left: 9rem;
-    top: -28.5rem;
+    top: -27.5rem;
   }
   .close_icon {
     position: relative;
     left: 9rem;
-    top: -28.5rem;
+    top: -27.5rem;
   }
 }
 /*- Very light red: hsl(13, 100%, 72%)

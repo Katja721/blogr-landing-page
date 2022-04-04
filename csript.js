@@ -9,8 +9,8 @@ const menuBtns = [...menuBtn];
 const dropIcons = [...dropIcon];
 dropBtns.forEach(element =>
   element.addEventListener('click', function (e) {
-    e.stopImmediatePropagation();
     let index = dropBtns.indexOf(element);
+    e.stopImmediatePropagation();
     dropIcons[index].style.transform = 'rotate(180deg)';
     menuBtns.forEach(menu => {
       menu.classList.add('hidden');
@@ -23,6 +23,7 @@ dropBtns.forEach(element =>
     });
   })
 );
+console.log(!menuBtns.some(elem => elem.classList.contains('hidden')));
 /////////////////////////////////////
 //mobile version
 const mediaMobile1 = window.matchMedia('(max-width: 400px)');
@@ -31,19 +32,22 @@ const menuOptions = document.querySelectorAll('.menuOptions');
 const menuMobile = document.querySelector('.menu_mobile');
 const hamburgerIcon = document.querySelector('.hamburger_icon');
 const closeIcon = document.querySelector('.close_icon');
+const dropIcon_mobile = document.querySelectorAll('.dropIcon_mobile');
+const dropIcons_mobile = [...dropIcon_mobile];
 const menuBtnsMobileArr = [...menuBtnsMobile];
 const menuOptionsArr = [...menuOptions];
-
+console.log(dropIcon_mobile);
 console.log(mediaMobile1.matches);
 if (mediaMobile1.matches) {
   hamburgerIcon.addEventListener('click', function (e) {
     e.stopImmediatePropagation();
     menuMobile.style.display = 'flex';
-    hamburgerIcon.classList.add('hidden');
+    hamburgerIcon.style.display = 'none';
     closeIcon.classList.remove('hidden');
     closeIcon.addEventListener('click', function () {
       menuMobile.style.display = 'none';
-      hamburgerIcon.classList.remove('hidden');
+      hamburgerIcon.style.display = 'block';
+
       closeIcon.classList.add('hidden');
     });
     menuBtnsMobile.forEach(btn =>
@@ -53,21 +57,25 @@ if (mediaMobile1.matches) {
         menuOptionsArr[index].classList.toggle('hidden');
         body.addEventListener('click', function () {
           menuOptionsArr[index].classList.add('hidden');
-          console.log(
-            menuOptionsArr.some(elem => elem.classList.contains('hidden'))
-          );
         });
-        if (!menuOptionsArr.some(elem => elem.classList.contains('hidden'))) {
-          console.log('nothing');
-        } else {
-          console.log('something');
-          menuBtnsMobileArr.forEach(btn =>
-            btn.addEventListener('click', function () {
-              menuOptionsArr[index].classList.add('hidden');
-            })
-          );
-        }
+        dropIcons_mobile.forEach(
+          icon => (icon.style.transform = 'rotate(180deg)')
+        );
+        // if (!menuOptionsArr.some(elem => elem.classList.contains('hidden'))) {
+        //   console.log('nothing');
+        // } else {
+        //   console.log('something');
+        //   menuBtnsMobileArr.forEach(btn =>
+        //     btn.addEventListener('click', function () {
+        //       menuOptionsArr[index].classList.add('hidden');
+        //     })
+        // );
+        // }
       })
     );
+  });
+  body.addEventListener('click', function () {
+    // menuOptionsArr.foreach(elem => elem.classList.add('hidden'));
+    dropIcons_mobile.forEach(icon => (icon.style.transform = 'rotate(360deg)'));
   });
 }
