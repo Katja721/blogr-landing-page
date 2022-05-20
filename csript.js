@@ -78,4 +78,6 @@ if (mediaMobile1.matches) {
       (icon) => (icon.style.transform = "rotate(360deg)")
     );
   });
+} else {
+  console.log("something is wrong");
 }
