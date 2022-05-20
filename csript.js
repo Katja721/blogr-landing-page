@@ -27,7 +27,7 @@ dropBtns.forEach((element) =>
 console.log(!menuBtns.some((elem) => elem.classList.contains("hidden")));
 /////////////////////////////////////
 //mobile version
-const mediaMobile1 = window.matchMedia("(max-width: 400px)");
+const mediaMobile1 = window.matchMedia("(max-width: 500px)");
 const menuBtnsMobile = document.querySelectorAll(".menuBtnMobile");
 const menuOptions = document.querySelectorAll(".menuOptions");
 const menuMobile = document.querySelector(".menu_mobile");
